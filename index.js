@@ -42,13 +42,15 @@ function getFilmCount(character) {
 */
 
 
-function getSecondStarshipName(character) {
-  if(character.starships.length = 0){
-    return 'none';
-  }else if(character.starships.length > 0){
+function getSecondStarshipName(character){
+  if(character.starships.length > 0){
     return character.starships[1].name;
+  }else{
+    return 'none';
   }
 }
+
+
 
 /**
  * ### Challenge `getSummary`
@@ -72,8 +74,14 @@ function getSummary(character) {
  * Sample data expected output: 8000
 */
 function getVehiclesCostInCreditsSumTotal(character) {
-  // TODO: Add your code here.
+  let sum = 0;
+  for(let i = 0; i < character.vehicles.length; i++){
+    sum += character.vehicles[i].cost_in_credits;
+  }
+  return sum;
 }
+
+// console.log(getVehiclesCostInCreditsSumTotal(lukeSkywalker));
 
 /**
  * ### Challenge `getStarshipPassengerAndCrewSumTotal`
@@ -86,8 +94,14 @@ function getVehiclesCostInCreditsSumTotal(character) {
  * Sample data expected output: 27
 */
 function getStarshipPassengerAndCrewSumTotal(character) {
-  // TODO: Add your code here.
+  let sum = 0;
+  for(let i = 0; i < character.starships.length; i++){
+    sum += character.starships[i].crew + character.starships[i].passengers;
+  }
+  return sum;
 }
+
+// console.log(getStarshipPassengerAndCrewSumTotal(lukeSkywalker));
 
 /**
  * ### Challenge `getNthFilm`
@@ -103,8 +117,17 @@ function getStarshipPassengerAndCrewSumTotal(character) {
  * Given film #7, expected error: `There are only 3 Star Wars movies. Flan fiction excluded.`
 */
 function getNthFilm(character, filmNumber) {
-  // TODO: Add your code here.
+  if(filmNumber === 1){
+    return character.films[0];
+  }else if(filmNumber === 2){
+    return character.films[1];
+  }else if (filmNumber === 3){
+    return character.films[2];
+  }else{
+    return 'There are only 3 Star Wars movies. Revenge of the Sith excluded'
+  }
 }
+
 
 /**
  * ### Challenge `getCargoCapacityTotal`
@@ -117,7 +140,15 @@ function getNthFilm(character, filmNumber) {
  * Sample data expected output: 80124
 */
 function getCargoCapacityTotal(character) {
-  // TODO: Add your code here.
+  let sum = 0;
+  let sumTwo = 0;
+  for(let i = 0; i < character.starships.length; i++){
+    sum += Number(character.starships[i].cargo_capacity);
+  }
+  for(let i = 0; i < character.vehicles.length; i++){
+    sumTwo += Number(character.vehicles[i].cargo_capacity);
+  }
+  return sum + sumTwo;
 }
 
 /**
