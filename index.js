@@ -29,8 +29,7 @@ function getName(character) {
  * Sample data expected output: 5
  */
 function getFilmCount(character) {
-  // TODO: Add your code inside the functions (others below).
-
+  return character.films.length;
 }
 
 /**
@@ -41,8 +40,14 @@ function getFilmCount(character) {
  * Return second starship's name from `starships` property.
  * If length is 0. Return 'none'
 */
+
+
 function getSecondStarshipName(character) {
-  // TODO: Add your code here.
+  if(character.starships.length = 0){
+    return 'none';
+  }else if(character.starships.length > 0){
+    return character.starships[1].name;
+  }
 }
 
 /**
@@ -55,7 +60,7 @@ function getSecondStarshipName(character) {
  *    Result: `Luke Skywalker, 172cm, 77kg. Featured in 5 films.`
  */
 function getSummary(character) {
-  // TODO: Add your code here.
+  return `${character.name}, ${character.height}cm, ${character.mass}kg. Featured in ${getFilmCount(character)} films.`;
 }
 
 /**
